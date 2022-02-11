@@ -14,7 +14,7 @@
       <input type="text" name="price" placeholder="price">
       <input type="text" name="vineyard" placeholder="Vineyard Location"/><br/>
       <label for="Wine Styles">Wine Style</label>
-      <select>
+      <select name="type">
         <% for (let i = 0; i < wineTypes.length; i++) { %>
           <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
         <% } %>
