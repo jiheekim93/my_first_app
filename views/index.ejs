@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/sip">
+      <h1>Sip.</h1>
+    </a>
+    <div>
+      <button><a href="/sip/new">New Wine?</a></button>
+      <% for (let i = 0; i < wines.length; i++) { %>
+      <h3><%=wines[i].name%> <%=wines[i].number%> <%=wines[i].year%> </h3>
+      <a href="/sip/<%=wines[i].id%>">
+        <img src= "<%=wines[i].image;%>"/></a>
+        <form action="/sip/<%=wines[i].id; %>?_method=DELETE" method="POST">
+        <input class="delete-btn" type="submit" value="DELETE"/>
+        <button class="edit-btn"><a href="/sip/<%=wines[i].id; %>/edit">EDIT</a></button>
+        </form>
+        <li> <%= wines[i].vineyard %> </li>
+        <% } %>
+
+    </div>
+  </body>
+</html>

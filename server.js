@@ -43,14 +43,94 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
-
+//use models
+const wineSeed = require('./models/seed.js')
+const Wine = require('./models/winedex.js')
+const wineTypes = require('./models/winetypes.js')
 //___________________
 // Routes
 //___________________
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+//
+
+
+
+//upload
+app.post('/sip', (req, res) => {
+  Wine.create(req.body, (err, createdWine) => {
+    res.redirect('/sip')
+  })
+})
+
+
+
+//update
+app.put('/sip/:id', (req, res) => {
+  Wine.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
+    res.redirect('/sip')
+  })
+})
+
+//edit-page
+app.get('/sip/:id/edit', (req, res) => {
+  Wine.findById(req.params.id, (err, foundWine) => {
+    res.render('edit.ejs', {
+      wine: foundWine,
+      wineType: wineTypes
+    })
+  })
+})
+
+//Delete
+app.delete('/sip/:id', (req, res) => {
+  Wine.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/sip')
+  })
+})
+
+//add / new-page
+app.get('/sip/new', (req, res) => {
+  res.render('new.ejs', {
+    wineTypes: wineTypes
+  })
+})
+
+
+//show-page
+app.get('/sip/:id', (req, res) => {
+  Wine.findById(req.params.id, (err, foundWine) => {
+    res.render('show.ejs', {
+      wine: foundWine,
+    })
+  })
+})
+
+//localhost:3000/sip = main-page
+app.get('/sip' , (req, res) => {
+  Wine.find({}, (err, allWines) => {
+    res.render('index.ejs', {
+      wines: allWines
+    })
+  });
 });
+
+
+//___________________
+//Add seed
+//___________________
+Wine.create(wineSeed, (err, data) => {
+  if (err) console.log(err.message);
+  console.log("added provided wine data");
+})
+// ___________________
+//Check seed
+//___________________
+// Wine.countDocuments({}, (err, data) => {
+//   if (err) console.log(err.message)
+//   console.log(`There are ${data} Wine in this database`)
+// })
+
+// Wine.collection.drop()
+
 
 //___________________
 //Listener

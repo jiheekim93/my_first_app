@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Add a new wine</h1>
+    <form action="/sip" method="POST">
+      <input type="text" name="number" placeholder="#"/><br/>
+      <input type="text" name="name" placeholder="Name"/><br/>
+      <input type="url" name="image" placeholder="Image"/><br/>
+      <input type="text" name="year" placeholder="year">
+      <input type="text" name="price" placeholder="price">
+      <input type="text" name="vineyard" placeholder="Vineyard Location"/><br/>
+      <label for="Wine Styles">Wine Style</label>
+      <select>
+        <% for (let i = 0; i < wineTypes.length; i++) { %>
+          <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
+        <% } %>
+      </select><br/>
+      <input type="text" name="tasteNote" placeholder="Taste Note">
+      <input type="submit" value="Add New Wine"/>
+    </form>
+  </body>
+</html>
