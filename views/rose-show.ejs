@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/sip"><h1>sip.</h1></a>
+    <a href="/sip"> <button type="button" name="back">back to main</button></a>
+    <a href="/sip/rose"> <button type="button" name="back">back to rose</button></a>
+    <div class="center-ul">
+        <h2><%= rose.name %> <%= rose.number %></h2>
+        <li> <img src = <%= rose.image %>></img> </li>
+        <li> <%=rose.year%></li>
+        <li> <%=rose.vineyard%></li>
+        <li> <%=rose.price%></li>
+        <li> <%=rose.type%></li>
+        <li> <%=rose.tasteNote%></li>
+    </div>
+  </body>
+</html>

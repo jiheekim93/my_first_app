@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/sip">
+      <h1>Sip.</h1>
+    </a>
+    <form action="/sip/red" method="GET" class="form-inline">
+      <div class="form-group">
+        <input type="text" name="search" placeholder="wine search">
+        <input type="submit" value="Search" class="btn">
+      </div>
+    </form>
+    <div>
+      <button><a href="/sip/newred">New Wine?</a></button>
+      <% for (let i = 0; i < reds.length; i++) { %>
+      <h3><%=reds[i].name%> <%=reds[i].number%> <%=reds[i].year%> </h3>
+      <a href="/sip/red/<%=reds[i].id%>">
+        <img src= "<%=reds[i].image;%>"/></a>
+        <form action="/sip/red/<%=reds[i].id; %>?_method=DELETE" method="POST">
+        <input class="delete-btn" type="submit" value="DELETE"/>
+        <button class="edit-btn"><a href="/sip/red/<%=reds[i].id; %>/edit">EDIT</a></button>
+        </form>
+        <li> <%= reds[i].vineyard %> </li>
+        <% } %>
+        
+    </div>
+  </body>
+</html>
