@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <a href="/sip">
-      <h1>Sip.</h1>
-    </a>
+    <%- include('./partials/logo.ejs') %>
+    <form action="/sip/red" method="GET" class="form-inline">
+      <%- include('./partials/search.ejs') %>
+    </form>
+      <%- include('./partials/menu.ejs') %>
+
     <div>
-      <button><a href="/sip/newrose">New Wine?</a></button>
+      <button><a href="/sip/newrose">New Rose Wine?</a></button>
       <% for (let i = 0; i < roses.length; i++) { %>
       <h3><%=roses[i].name%> <%=roses[i].number%> <%=roses[i].year%> </h3>
       <a href="/sip/rose/<%=roses[i].id%>">

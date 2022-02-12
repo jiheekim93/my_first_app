@@ -143,6 +143,7 @@ app.delete('/sip/rose/:id', (req, res) => {
     res.redirect('/sip/rose')
   })
 })
+
 //add 3 new-pages
 app.get('/sip/newred', (req, res) => {
   res.render('red-new.ejs', {

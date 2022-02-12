@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <a href="/sip">
-      <h1>Sip.</h1>
-    </a>
+    <%- include('./partials/logo.ejs') %>
     <form action="/sip/red" method="GET" class="form-inline">
-      <div class="form-group">
-        <input type="text" name="search" placeholder="wine search">
-        <input type="submit" value="Search" class="btn">
-      </div>
+      <%- include('./partials/search.ejs') %>
     </form>
+      <%- include('./partials/menu.ejs') %>
     <div>
-      <button><a href="/sip/newred">New Wine?</a></button>
+      <button><a href="/sip/newred">New Red Wine?</a></button>
       <% for (let i = 0; i < reds.length; i++) { %>
       <h3><%=reds[i].name%> <%=reds[i].number%> <%=reds[i].year%> </h3>
       <a href="/sip/red/<%=reds[i].id%>">
@@ -26,7 +21,7 @@
         </form>
         <li> <%= reds[i].vineyard %> </li>
         <% } %>
-        
+
     </div>
   </body>
 </html>

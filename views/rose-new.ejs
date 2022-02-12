@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/head.ejs') %>
   </head>
   <body>
     <h1>Post New Rosé Wine</h1>
     <form action="/sip/rose" method="POST">
-      <input type="text" name="number" placeholder="#"/><br/>
-      <input type="text" name="name" placeholder="Name"/><br/>
-      <input type="url" name="image" value="" placeholder="Image"/><br/>
-      <input type="text" name="year" placeholder="year"><br/>
-      <input type="text" name="price" placeholder="price"><br/>
-      <input type="text" name="vineyard" placeholder="Vineyard Location"/><br/>
+      <%- include('./partials/new-input.ejs') %>
       <select name="type">
         <% for (let i = 0; i < wineTypes.length; i++) { %>
           <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
