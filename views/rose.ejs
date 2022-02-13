@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include('./partials/logo.ejs') %>
+    <form action="/sip/red" method="GET" class="form-inline">
+      <%- include('./partials/search.ejs') %>
+    </form>
+      <%- include('./partials/menu.ejs') %>
+
+    <div>
+      <button><a href="/sip/newrose">New Rose Wine?</a></button>
+      <% for (let i = 0; i < roses.length; i++) { %>
+      <h3><%=roses[i].name%> <%=roses[i].number%> <%=roses[i].year%> </h3>
+      <a href="/sip/rose/<%=roses[i].id%>">
+        <img src= "<%=roses[i].image;%>"/></a>
+        <form action="/sip/rose/<%=roses[i].id; %>?_method=DELETE" method="POST">
+        <input class="delete-btn" type="submit" value="DELETE"/>
+        <button class="edit-btn"><a href="/sip/rose/<%=roses[i].id; %>/edit">EDIT</a></button>
+        </form>
+        <li> <%= roses[i].vineyard %> </li>
+        <% } %>
+
+    </div>
+  </body>
+</html>
