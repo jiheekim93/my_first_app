@@ -6,23 +6,14 @@
   <body>
     <%- include('./partials/wine-logo.ejs') %>
 
-    <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-    </div>
+    <%- include('./partials/wine-nav.ejs') %>
 
-    <div class="red-container">
-      <button><a href="/sip/newred">New Red Wine?</a></button>
+
+    <div class="wine-container">
+      <button><img src=""><a href="/sip/newred">New Red Wine?</a></button>
 
       <% for (let i = 0; i < reds.length; i++) { %>
-    <div class="red-content">
+    <div class="wine-content">
       <h3><%=reds[i].name%> <%=reds[i].number%> <%=reds[i].year%> </h3>
       <a href="/sip/red/<%=reds[i].id%>">
         <img src= "<%=reds[i].image;%>"/></a>

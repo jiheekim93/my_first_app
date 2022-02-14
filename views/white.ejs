@@ -5,9 +5,13 @@
   </head>
   <body>
     <%- include('./partials/wine-logo.ejs') %>
-    <div>
+
+    <%- include('./partials/wine-nav.ejs') %>
+
+    <div class="wine-container">
       <button><a href="/sip/newwhite">New White Wine?</a></button>
       <% for (let i = 0; i < whites.length; i++) { %>
+      <div class="wine-content">
       <h3><%=whites[i].name%> <%=whites[i].number%> <%=whites[i].year%> </h3>
       <a href="/sip/white/<%=whites[i].id%>">
         <img src= "<%=whites[i].image;%>"/></a>
@@ -16,8 +20,8 @@
         <button class="edit-btn"><a href="/sip/white/<%=whites[i].id; %>/edit">EDIT</a></button>
         </form>
         <li> <%= whites[i].vineyard %> </li>
+      </div>
         <% } %>
-
     </div>
   </body>
 </html>

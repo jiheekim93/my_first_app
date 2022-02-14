@@ -188,6 +188,8 @@ app.get('/sip/rose/:id', (req, res) => {
   })
 })
 
+
+
 // 3 main pages
 app.get('/sip/red' , (req, res) => {
   Red.find({}, (err, allWines) => {
@@ -212,6 +214,17 @@ app.get('/sip/rose' , (req, res) => {
     })
   });
 });
+
+
+
+//informational pages
+app.get('/sip/about', (req, res) => {
+  res.render('about.ejs')
+})
+
+app.get('/sip/contact', (req, res) => {
+  res.render('contact.ejs')
+})
 //localhost:3000/siphome-page
 app.get('/sip', (req, res) => {
   res.render('main.ejs')
