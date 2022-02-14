@@ -57,11 +57,8 @@
   z-index: 2;
   list-style: none;
   display: flex;
-<<<<<<< HEAD
   justify-content: space-around;
-=======
   justify-content: space-between;
->>>>>>> 18ad60977e896557b70ed6da726d3bc537a9629d
   flex-direction: row;
   gap: 50px;
 }
@@ -71,11 +68,8 @@
 }
 
 .menu a {
-<<<<<<< HEAD
   color: #F8C0B0;
-=======
   color: white;
->>>>>>> 18ad60977e896557b70ed6da726d3bc537a9629d
   font-size: 1.5em;
   text-decoration: none;
   font-family: 'Khand', sans-serif;
