@@ -4,10 +4,17 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
+    <div class="wine-nav">
+      <li><a href="/sip">Home</li>
+      <li><a href="/sip/about">About</li>
+      <li><a href="/sip/red">Red</li>
+      <li><a href="/sip/white">White</li>
+      <li><a href="/sip/rose">Rose</li>
+      <li><a href="/sip/contact">Contact</li>
+    </div>
     <form action="/sip/red" method="GET" class="form-inline">
       <%- include('./partials/search.ejs') %>
     </form>
-      <%- include('./partials/menu.ejs') %>
     <div>
       <button><a href="/sip/newred">New Red Wine?</a></button>
       <% for (let i = 0; i < reds.length; i++) { %>

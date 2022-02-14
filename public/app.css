@@ -15,13 +15,14 @@
   padding: 100px;
   display: flex;
   justify-content: space-around;
+  align-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
   background: #111;
   color: #fff;
-  gap: 200px;
+  gap: 400px;
 }
 
 .logo {
@@ -57,7 +58,7 @@
   flex-flow:  wrap;
   gap: 100px;
   position: relative;
-  bottom: 15vh;
+  bottom: 30vh;
 }
 
 .menu li {
