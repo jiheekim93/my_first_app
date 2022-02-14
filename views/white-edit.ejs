@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <form action="/sip/white/<%=white.id%>?_method=PUT" method="POST">
+      <input type="text" name="number" value="<%=white.number%>" placeholder="#"/><input type="reset"><br/>
+      <input type="text" name="name" value="<%=white.name%>" placeholder="Name"/><input type="reset"><br/>
+      <input type="url" name="image" value="<%=white.image%>" placeholder="Image"/><input type="reset">
+      <br/>
+      <input type="text" name="year" value="<%=white.year%>" placeholder="Year"/><input type="reset"><br/>
+      <input type="text" name="vineyard" value="<%=white.vineyard%>" placeholder="Vineyard Location"/><input type="reset"><br/>
+      <input type="text" name="price" value="<%=white.price%>" placeholder="Price"/><input type="reset"><br/>
+      <input type="text" name="tasteNote" value="<%=white.tasteNote%>" placeholder="Taste Note"/><input type="reset"><br/>
+      <select name="type">
+      <%  for (let i = 0; i < wineType.length; i++) { %>
+      <option value= <%=wineType[i]%>><%=wineType[i]%></option>
+      <% } %>
+      </select>
+      <input type="reset"> <br/>
+      <input type="submit" name="submit" value="Submit Changes"/>
+      <a href="/sip"> <button type="button" name="back">BACK TO MAIN</button>
+      </a><br/>
+    </form>
+  </body>
+</html>

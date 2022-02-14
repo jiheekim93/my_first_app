@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <a href="/sip"><h1>sip.</h1></a>
+    <a href="/sip"> <button type="button" name="back">back to main</button></a>
+    <a href="/sip/red"> <button type="button" name="back">back to red</button></a>
+    <div class="center-ul">
+        <h2><%= red.name %> <%= red.number %></h2>
+        <li> <img src = <%= red.image %>></img> </li>
+        <li> <%=red.year%></li>
+        <li> <%=red.vineyard%></li>
+        <li> <%=red.price%></li>
+        <li> <%=red.type%></li>
+        <li> <%=red.tasteNote%></li>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <h1>Post New Wine</h1>
+    <form action="/sip/red" method="POST">
+      <%- include('./partials/new-input.ejs') %>
+      <select name="type">
+        <% for (let i = 0; i < wineTypes.length; i++) { %>
+          <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
+        <% } %>
+      </select><br/>
+      <input type="text" name="tasteNote" placeholder="Taste Note"><br/>
+      <input type="submit" value="Add New Wine"/>
+    </form>
+  </body>
+</html>
