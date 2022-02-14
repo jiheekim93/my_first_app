@@ -4,30 +4,40 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <div class="wine-nav">
-      <li><a href="/sip">Home</li>
-      <li><a href="/sip/about">About</li>
-      <li><a href="/sip/red">Red</li>
-      <li><a href="/sip/white">White</li>
-      <li><a href="/sip/rose">Rose</li>
-      <li><a href="/sip/contact">Contact</li>
+    <%- include('./partials/wine-logo.ejs') %>
+
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
     </div>
-    <form action="/sip/red" method="GET" class="form-inline">
-      <%- include('./partials/search.ejs') %>
-    </form>
-    <div>
+
+    <div class="red-container">
       <button><a href="/sip/newred">New Red Wine?</a></button>
+
       <% for (let i = 0; i < reds.length; i++) { %>
+    <div class="red-content">
       <h3><%=reds[i].name%> <%=reds[i].number%> <%=reds[i].year%> </h3>
       <a href="/sip/red/<%=reds[i].id%>">
         <img src= "<%=reds[i].image;%>"/></a>
+        <li> <%= reds[i].vineyard %> </li>
         <form action="/sip/red/<%=reds[i].id; %>?_method=DELETE" method="POST">
         <input class="delete-btn" type="submit" value="DELETE"/>
         <button class="edit-btn"><a href="/sip/red/<%=reds[i].id; %>/edit">EDIT</a></button>
         </form>
-        <li> <%= reds[i].vineyard %> </li>
+      </div>
         <% } %>
-
     </div>
+    <!-- <style>
+    * {
+      border: 1px blue solid;
+    }
+    </style> -->
   </body>
 </html>

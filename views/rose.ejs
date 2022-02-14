@@ -4,24 +4,21 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <form action="/sip/red" method="GET" class="form-inline">
-      <%- include('./partials/search.ejs') %>
-    </form>
-      <%- include('./partials/menu.ejs') %>
-
-    <div>
-      <button><a href="/sip/newrose">New Rose Wine?</a></button>
+    <%- include('./partials/wine-logo.ejs') %>
+    <button><a href="/sip/newrose">New Rose Wine?</a></button>
+    <div class="rose-container">
       <% for (let i = 0; i < roses.length; i++) { %>
-      <h3><%=roses[i].name%> <%=roses[i].number%> <%=roses[i].year%> </h3>
-      <a href="/sip/rose/<%=roses[i].id%>">
-        <img src= "<%=roses[i].image;%>"/></a>
-        <form action="/sip/rose/<%=roses[i].id; %>?_method=DELETE" method="POST">
-        <input class="delete-btn" type="submit" value="DELETE"/>
-        <button class="edit-btn"><a href="/sip/rose/<%=roses[i].id; %>/edit">EDIT</a></button>
-        </form>
+      <div class="rose-content">
+        <h3><%=roses[i].name%> <%=roses[i].number%> <%=roses[i].year%> </h3>
         <li> <%= roses[i].vineyard %> </li>
+        <a href="/sip/rose/<%=roses[i].id%>">
+          <img src= "<%=roses[i].image;%>"/></a>
+          <form action="/sip/rose/<%=roses[i].id; %>?_method=DELETE" method="POST">
+          <input class="delete-btn" type="submit" value="DELETE"/>
+          <button class="edit-btn"><a href="/sip/rose/<%=roses[i].id; %>/edit">EDIT</a></button>
+          </form>
+        </div>
         <% } %>
-
     </div>
   </body>
 </html>
