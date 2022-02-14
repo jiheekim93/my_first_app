@@ -3,13 +3,12 @@
   <head>
     <%- include('./partials/head.ejs') %>
   </head>
-  <body>
-    <%- include('./partials/wine-logo.ejs') %>
+  <body class="background">
 
     <%- include('./partials/wine-nav.ejs') %>
 
     <div class="wine-container">
-      <button><a href="/sip/newwhite">New White Wine?</a></button>
+      <a href="/sip/newwhite"><div class="add-wine">New White Wine?</div></a>
       <% for (let i = 0; i < whites.length; i++) { %>
       <div class="wine-content">
       <h3><%=whites[i].name%> <%=whites[i].number%> <%=whites[i].year%> </h3>

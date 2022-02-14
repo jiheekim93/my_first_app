@@ -3,7 +3,10 @@
   <head>
     <%- include('./partials/head.ejs') %>
   </head>
-  <body>
+  <body class="background">
+
+    <%- include('./partials/wine-nav.ejs') %>
+
     <form action="/sip/red/<%=red.id%>?_method=PUT" method="POST">
       <input type="text" name="number" value="<%=red.number%>" placeholder="#"/><input type="reset"><br/>
       <input type="text" name="name" value="<%=red.name%>" placeholder="Name"/><input type="reset"><br/>

@@ -3,7 +3,9 @@
   <head>
     <%- include('./partials/head.ejs') %>
   </head>
-  <body>
+  <body class="background">
+    <%- include('./partials/wine-nav.ejs') %>
+
     <h1>Post New Rosé Wine</h1>
     <form action="/sip/rose" method="POST">
       <%- include('./partials/new-input.ejs') %>

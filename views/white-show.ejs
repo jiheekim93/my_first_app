@@ -3,11 +3,12 @@
   <head>
     <%- include('./partials/head.ejs') %>
   </head>
-  <body>
-    <a href="/sip"><h1>sip.</h1></a>
-    <a href="/sip"> <button type="button" name="back">back to main</button></a>
-    <a href="/sip/white"> <button type="button" name="back">back to white</button></a>
-    <div class="center-ul">
+  <body class="background">
+
+      <%- include('./partials/wine-nav.ejs') %>
+
+
+      <div class="wine-show">
         <h2><%= white.name %> <%= white.number %></h2>
         <li> <img src = <%= white.image %>></img> </li>
         <li> <%=white.year%></li>
@@ -15,6 +16,8 @@
         <li> <%=white.price%></li>
         <li> <%=white.type%></li>
         <li> <%=white.tasteNote%></li>
+        <a href="/sip/white"> <button type="button" name="back">back to white</button></a>
     </div>
+
   </body>
 </html>

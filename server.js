@@ -52,7 +52,8 @@ const Red = require('./models/red.js')
 const White = require('./models/white.js')
 const Rose = require('./models/rose.js')
 const wineTypes = require('./models/winetypes.js')
-
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
 //___________________
 // Routes
 //___________________
