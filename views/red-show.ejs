@@ -8,15 +8,16 @@
     <%- include('./partials/wine-nav.ejs') %>
 
     <div class="wine-show">
-        <h2><%= red.name %> <%= red.number %></h2>
-        <li> <img src = <%= red.image %>></img> </li>
-        <li> <%=red.year%></li>
-        <li> <%=red.vineyard%></li>
-        <li> <%=red.price%></li>
-        <li> <%=red.type%></li>
-        <li> <%=red.tasteNote%></li>
-        <a href="/sip/red"> <button type="button" name="back">back to red</button></a>
+      <h2><%= red.name %> <%= red.number %></h2>
+      <li> <img src = <%= red.image %>></img> </li>
+      <li> Year: <%=red.year%></li>
+      <li> Location: <%=red.vineyard%></li>
+      <li> Pirce: <%=red.price%></li>
+      <li> Type: <%=red.type%></li>
+      <li> Taste note: <%=red.tasteNote%></li>
+      <a href="/sip/red"> <button type="button" name="back">Back to Red</button></a>
 
     </div>
+
   </body>
 </html>

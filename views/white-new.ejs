@@ -6,8 +6,16 @@
   <body class="background">
 
     <%- include('./partials/wine-nav.ejs') %>
+    <div class="wine-heading">
+      <h1>Post New Wine</h1>
+    </div>
 
-    <h1>Post New White Wine</h1>
+    <div id="new-wine-container">
+
+      <img class="mockup" src="https://i.imgur.com/I2oV3Sz.png">
+
+      <div class="add-new">
+
     <form action="/sip/white" method="POST">
       <%- include('./partials/new-input.ejs') %>
       <select name="type">
@@ -16,7 +24,11 @@
         <% } %>
       </select><br/>
       <input type="text" name="tasteNote" placeholder="Taste Note"><br/>
-      <input type="submit" value="Add New White Wine"/>
+      <div class="submit">
+        <input type="submit" value="Add New White Wine"/>
+      </div>
     </form>
+      </div>
+    </div>
   </body>
 </html>
