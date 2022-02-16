@@ -1,0 +1,20 @@
+
+
+
+<ul class="right">
+  <div class="wine-logo">
+    <a href="/sip"><h1>Sip</h1></a>
+    <a href="/sip"><p>Back to main</p></a>
+  </div>
+
+  <li><a href="/new">Log in</a></li>
+  <li><a href="/users/new">Create your account</a></li>
+  <% if (currentUser) { %>
+
+  <li>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out" class="btn-small red" />
+    </form>
+  </li>
+  <% } %>
+</ul>

@@ -16,7 +16,7 @@ app.use('/sessions', sessionsController)
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
-
+const SECRET = process.env.SECRET
 //___________________
 //Database
 //___________________
@@ -38,7 +38,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 app.use(
   session({
-    secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
+    secret: SECRET, //a random string do not copy this value or your stuff will get hacked
     resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
     saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
   })
@@ -253,12 +253,25 @@ app.get('/sip/rose' , (req, res) => {
 });
 
 //login page
+app.delete('/new', (req, res) => {
+  User.findByIdAndRemove({}, (err, User) => {
+    res.render('session-new.ejs', {
+      currentUser: true,
+    })
+  })
+})
 
-
-app.get('/sip/new', (req, res) => {
+app.get('/new', (req, res) => {
   User.find({}, (err, newUser) => {
     res.render('session-new.ejs', {
-      user: newUser,
+      currentUser: true,
+    })
+  })
+})
+
+app.get('/new', (req, res) => {
+  User.find({}, (err, newUser) => {
+    res.render('users-new.ejs', {
       currentUser: true,
     })
   })

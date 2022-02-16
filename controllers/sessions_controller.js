@@ -8,10 +8,9 @@ const User = require('../models/users.js')
 
 // on sessions form submit (log in)
 sessions.get('/new', (req, res) => {
-  res.render('new.ejs', {
-    currentUser: req.session.currentUser
+  res.render('users-new.ejs', {
+    currentUser: true
   })
-  console.log(req.body);
 })
   // username is found and password matches
   // successful log in
@@ -28,7 +27,6 @@ sessions.get('/new', (req, res) => {
   sessions.post('/', (req, res) => {
     // console.log(req);
     User.findOne({username: true}, (err, foundUser) => {
-
       if (err){
         console.log('error');
         res.send('oops we had a problem')
@@ -41,10 +39,10 @@ sessions.get('/new', (req, res) => {
           //add user to session
         req.session.currentUser = foundUser
         // redirect to home page
-        res.redirect('/sip')
+        res.redirect('/')
       } else{
         //passwords do not match
-        res.send('<a href="/">password does not match </a>')
+        res.send('<a href="/sip/new">password does not match </a>')
       }
     }
   })
@@ -55,7 +53,7 @@ sessions.get('/new', (req, res) => {
 
 sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/')
+    res.redirect('/sip')
   })
 })
 

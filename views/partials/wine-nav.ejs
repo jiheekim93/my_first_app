@@ -12,20 +12,6 @@
       <input type="text" placeholder="Search.." name="search">
     </form>
     <button type="submit">SEARCH</button>
-
-    <ul class="right">
-      <li><a href="/sip/new">Create a new account</a></li>
-      <% if (currentUser) { %>
-      </li>
-      <li>
-        <form action="/sessions?_method=DELETE" method="POST">
-          <input type="submit" value="Log Out" class="btn-small red" />
-        </form>
-      </li>
-      <% } else { %>
-      <li><a href="/users/new">Sign Up</a></li>
-      <li><a href="/sessions/new">Log In</a></li>
-      <% } %>
-    </ul>
+  
 
 </div>

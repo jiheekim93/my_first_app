@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/login-head.ejs') %>
   </head>
-  <body>
-        <%- include('./partials/wine-nav.ejs') %>
-    <div class = 'container'>
+  <body class="background">
+    <%-include ('./partials/login-nav.ejs')%>
+        <div class = 'container'>
       <h1> New Account </h1>
-      <form action="/users?_method=PUT" method="POST">
-        username:<input type='text' name='username' value='' /><br/>
-        password: <input type='text' name='password' value=''><br/>
-    
-        Email:<input type='text' name='email' value=''><br/>
+      <form action="/users?_method=POST" method="POST">
+        username<input type='text' name='username' value='' /><br/>
+        password <input type='password' name='password' value=''><br/>
+        Email<input type='text' name='email' value=''><br/>
         <input type='submit' value='Create Account'/>
       </form>
   </body>
