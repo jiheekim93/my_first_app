@@ -11,7 +11,9 @@
       <a href="/sip/newwhite"><div class="add-wine">New White Wine?</div></a>
       <% for (let i = 0; i < whites.length; i++) { %>
       <div class="wine-content">
-      <h3><%=whites[i].name%> <%=whites[i].number%> <%=whites[i].year%> </h3>
+      <h3>
+        <%=whites[i].number%>
+        <%=whites[i].name%>  <%=whites[i].year%> </h3>
       <a href="/sip/white/<%=whites[i].id%>">
         <img src= "<%=whites[i].image;%>"/></a>
         <li> <%= whites[i].vineyard %> </li>

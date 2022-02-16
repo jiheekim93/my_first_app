@@ -29,6 +29,11 @@
       <option value= <%=wineType[i]%>><%=wineType[i]%></option>
       <% } %>
       </select>
+      <select name="auctionable">
+      <% for (let i = 0; i < auction.length; i++) { %>
+        <option value= <%= auction[i]%>><%=auction[i]%></option>
+      <% } %>
+      </select>
       <div class="edit-submit">
       <input type="reset"> <br/>
       <input type="submit" name="submit" value="Submit Changes"/>

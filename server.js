@@ -60,6 +60,7 @@ const Red = require('./models/red.js')
 const White = require('./models/white.js')
 const Rose = require('./models/rose.js')
 const wineTypes = require('./models/winetypes.js')
+const auctionTypes = require('./models/auction.js')
 const userController = require('./controllers/users_controller.js')
 const userInfo = require('./models/user-info.js')
 const User = require('./models/users.js')
@@ -121,7 +122,8 @@ app.get('/sip/red/:id/edit', (req, res) => {
     res.render('red-edit.ejs', {
       currentUser: true,
       red: foundWine,
-      wineType: wineTypes
+      wineType: wineTypes,
+      auction: auctionTypes
     })
   })
 })
@@ -132,6 +134,7 @@ app.get('/sip/white/:id/edit', (req, res) => {
       currentUser: true,
       white: whiteWine,
       wineType: wineTypes,
+      auction: auctionTypes
     })
   })
 })
@@ -141,7 +144,8 @@ app.get('/sip/rose/:id/edit', (req, res) => {
     res.render('rose-edit.ejs', {
       currentUser: true,
       rose: roseWine,
-      wineType: wineTypes
+      wineType: wineTypes,
+      auction: auctionTypes
     })
   })
 })
@@ -158,7 +162,6 @@ app.delete('/sip/red/:id', (req, res) => {
 app.delete('/sip/white/:id', (req, res) => {
   White.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/sip/white')
-      currentUser: true
     })
   })
 
@@ -166,7 +169,6 @@ app.delete('/sip/white/:id', (req, res) => {
 app.delete('/sip/rose/:id', (req, res) => {
   Rose.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/sip/rose')
-      currentUser: true
     })
   })
 
@@ -174,19 +176,22 @@ app.delete('/sip/rose/:id', (req, res) => {
 //add 3 new-pages
 app.get('/sip/newred', (req, res) => {
   res.render('red-new.ejs', {
-    wineTypes: wineTypes
+    wineTypes: wineTypes,
+    auctions: auctionTypes
   })
 })
 
 app.get('/sip/newwhite', (req, res) => {
   res.render('white-new.ejs', {
-    wineTypes: wineTypes
+    wineTypes: wineTypes,
+    auctions: auctionTypes
   })
 })
 
 app.get('/sip/newrose', (req, res) => {
   res.render('rose-new.ejs', {
-    wineTypes: wineTypes
+    wineTypes: wineTypes,
+    auctions: auctionTypes
   })
 })
 

@@ -11,7 +11,10 @@
       <a href="/sip/newrose"><div class="add-wine">New Rosé Wine?</div></a>
       <% for (let i = 0; i < roses.length; i++) { %>
       <div class="wine-content">
-        <h3><%=roses[i].name%> <%=roses[i].number%> <%=roses[i].year%> </h3>
+        <h3>
+          <%=roses[i].number%>
+          <%=roses[i].name%>
+          <%=roses[i].year%> </h3>
         <a href="/sip/rose/<%=roses[i].id%>">
           <img src= "<%=roses[i].image;%>"/></a>
           <li> <%= roses[i].vineyard %> </li>

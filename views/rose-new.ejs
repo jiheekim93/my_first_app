@@ -21,7 +21,12 @@
         <% for (let i = 0; i < wineTypes.length; i++) { %>
           <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
         <% } %>
-      </select><br/>
+      </select>
+      <select name="auctionable">
+      <% for (let i = 0; i < auctions.length; i++) { %>
+        <option value= <%= auctions[i]%>> <%=auctions[i]%></option>
+      <% } %>
+      </select>
       <input type="text" name="tasteNote" placeholder="Taste Note"><br/>
       <div class="submit">
         <input type="submit" value="Add New Wine"/>

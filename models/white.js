@@ -9,7 +9,8 @@ const wineSchema = new Schema({
   type: [String],
   year: String,
   price: String,
-  tasteNote: [String]
+  tasteNote: [String],
+  auctionable: [String]
 });
 
 const White = mongoose.model('White', wineSchema);
