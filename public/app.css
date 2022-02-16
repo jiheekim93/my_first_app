@@ -144,15 +144,18 @@
 }
 .topnav {
   display: flex;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: space-around;;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  text-align: center;
   top: 0;
   margin:20px;
   background-color: #F6E9D9;
   position: sticky;
   align-items: center;
   z-index: 2;
-  gap: 50px;
+  gap: 50px 10px;
 }
 
 .topnav a {
@@ -229,6 +232,12 @@
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 50px;
+}
+
+.about-container img {
+  position: relative;
+  top: 3vh;
+  width: 40vw;
 }
 
 .add-wine {

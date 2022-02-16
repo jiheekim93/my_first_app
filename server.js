@@ -8,6 +8,9 @@ const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
 const router = express.Router();
+const session = require('express-session')
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 //___________________
 //Port
 //___________________
@@ -33,7 +36,13 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 //Middleware
 //___________________
-
+app.use(
+  session({
+    secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
+    resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
+    saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
+  })
+)
 //use public folder for static assets
 app.use(express.static('public'));
 
@@ -44,8 +53,7 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
-//use router
-app.use(router);
+
 
 //use models
 const Red = require('./models/red.js')
@@ -53,6 +61,8 @@ const White = require('./models/white.js')
 const Rose = require('./models/rose.js')
 const wineTypes = require('./models/winetypes.js')
 const userController = require('./controllers/users_controller.js')
+const userInfo = require('./models/user-info.js')
+const User = require('./models/users.js')
 app.use('/users', userController)
 //___________________
 // Routes
@@ -64,37 +74,44 @@ app.use('/users', userController)
 //3 uploads
 app.post('/sip/red', (req, res) => {
   Red.create(req.body, (err, createdRed) => {
-    res.redirect('/sip/red')
+    res.redirect('/sip/red', { currentUser:true
+    })
   })
 })
 
 app.post('/sip/white', (req, res) => {
   White.create(req.body, (err, createdWhite) => {
-    res.redirect('/sip/white')
-  })
+    res.redirect('/sip/white', { currentUser:true
+     })
+   })
 })
+
 
 app.post('/sip/rose', (req, res) => {
   Rose.create(req.body, (err, createdRose) => {
-    res.redirect('/sip/rose')
+    res.redirect('/sip/rose', { currentUser:true
+    })
   })
 })
 //3 updates
 app.put('/sip/red/:id', (req, res) => {
   Red.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
-    res.redirect('/sip/red')
+    res.redirect('/sip/red', { currentUser:true
+    })
   })
 })
 
 app.put('/sip/white/:id', (req, res) => {
   White.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
-    res.redirect('/sip/white')
+    res.redirect('/sip/white', { currentUser:true
+     })
   })
 })
 
 app.put('/sip/rose/:id', (req, res) => {
   Rose.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
-    res.redirect('/sip/rose')
+    res.redirect('/sip/rose', { currentUser:true
+    })
   })
 })
 
@@ -102,6 +119,7 @@ app.put('/sip/rose/:id', (req, res) => {
 app.get('/sip/red/:id/edit', (req, res) => {
   Red.findById(req.params.id, (err, foundWine) => {
     res.render('red-edit.ejs', {
+      currentUser: true,
       red: foundWine,
       wineType: wineTypes
     })
@@ -111,8 +129,9 @@ app.get('/sip/red/:id/edit', (req, res) => {
 app.get('/sip/white/:id/edit', (req, res) => {
   White.findById(req.params.id, (err, whiteWine) => {
     res.render('white-edit.ejs', {
+      currentUser: true,
       white: whiteWine,
-      wineType: wineTypes
+      wineType: wineTypes,
     })
   })
 })
@@ -120,6 +139,7 @@ app.get('/sip/white/:id/edit', (req, res) => {
 app.get('/sip/rose/:id/edit', (req, res) => {
   Rose.findById(req.params.id, (err, roseWine) => {
     res.render('rose-edit.ejs', {
+      currentUser: true,
       rose: roseWine,
       wineType: wineTypes
     })
@@ -129,37 +149,47 @@ app.get('/sip/rose/:id/edit', (req, res) => {
 // 3 Deletes
 app.delete('/sip/red/:id', (req, res) => {
   Red.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/sip/red')
+    res.redirect('/sip/red', {
+      currentUser: true
+    })
   })
 })
 
+
 app.delete('/sip/white/:id', (req, res) => {
   White.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/sip/white')
+    res.redirect('/sip/white', {
+      currentUser: true
+    })
   })
 })
 
 app.delete('/sip/rose/:id', (req, res) => {
   Rose.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/sip/rose')
+    res.redirect('/sip/rose', {
+      currentUser: true
+    })
   })
 })
 
 //add 3 new-pages
 app.get('/sip/newred', (req, res) => {
   res.render('red-new.ejs', {
+    currentUser: true,
     wineTypes: wineTypes
   })
 })
 
 app.get('/sip/newwhite', (req, res) => {
   res.render('white-new.ejs', {
+    currentUser: true,
     wineTypes: wineTypes
   })
 })
 
 app.get('/sip/newrose', (req, res) => {
   res.render('rose-new.ejs', {
+    currentUser: true,
     wineTypes: wineTypes
   })
 })
@@ -168,7 +198,8 @@ app.get('/sip/newrose', (req, res) => {
 app.get('/sip/red/:id', (req, res) => {
   Red.findById(req.params.id, (err, foundWine) => {
     res.render('red-show.ejs', {
-      red: foundWine,
+      currentUser: true,
+      red: foundWine
     })
   })
 })
@@ -176,7 +207,8 @@ app.get('/sip/red/:id', (req, res) => {
 app.get('/sip/white/:id', (req, res) => {
   White.findById(req.params.id, (err, whiteWine) => {
     res.render('white-show.ejs', {
-      white: whiteWine,
+      currentUser: true,
+      white: whiteWine
     })
   })
 })
@@ -184,7 +216,8 @@ app.get('/sip/white/:id', (req, res) => {
 app.get('/sip/rose/:id', (req, res) => {
   Rose.findById(req.params.id, (err, roseWine) => {
     res.render('rose-show.ejs', {
-      rose: roseWine,
+      currentUser: true,
+      rose: roseWine
     })
   })
 })
@@ -195,6 +228,7 @@ app.get('/sip/rose/:id', (req, res) => {
 app.get('/sip/red' , (req, res) => {
   Red.find({}, (err, allWines) => {
     res.render('red.ejs', {
+      currentUser: true,
       reds: allWines
     })
   });
@@ -203,6 +237,7 @@ app.get('/sip/red' , (req, res) => {
 app.get('/sip/white' , (req, res) => {
   White.find({}, (err, whiteWines) => {
     res.render('white.ejs', {
+      currentUser: true,
       whites: whiteWines
     })
   });
@@ -211,20 +246,35 @@ app.get('/sip/white' , (req, res) => {
 app.get('/sip/rose' , (req, res) => {
   Rose.find({}, (err, roseWines) => {
     res.render('rose.ejs', {
+      currentUser: true,
       roses: roseWines
     })
   });
 });
 
+//login page
 
+
+app.get('/sip/new', (req, res) => {
+  User.find({}, (err, newUser) => {
+    res.render('session-new.ejs', {
+      user: newUser,
+      currentUser: true,
+    })
+  })
+})
 
 //informational pages
 app.get('/sip/about', (req, res) => {
-  res.render('about.ejs')
+  res.render('about.ejs', {
+    currentUser: true,
+  })
 })
 
 app.get('/sip/contact', (req, res) => {
-  res.render('contact.ejs')
+  res.render('contact.ejs', {
+    currentUser: true,
+  })
 })
 //localhost:3000/siphome-page
 app.get('/sip', (req, res) => {

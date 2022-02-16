@@ -3,9 +3,7 @@ const express = require('express')
 const users = express.Router()
 const User = require('../models/users.js')
 
-users.get('/new', (req, res) => {
-  res.render('users/new.ejs')
-})
+
 
 users.post('/', (req, res) => {
   //overwrite the user password with the hashed password, then pass that in to our database
@@ -15,5 +13,13 @@ users.post('/', (req, res) => {
     res.redirect('/')
   })
 })
+
+users.get('/new', (req, res) => {
+  res.render('users-new.ejs', {
+  currentUser: req.session.currentUser
+  })
+})
+
+
 
 module.exports = users
