@@ -6,12 +6,12 @@
   <body class="background">
 
     <%- include('./partials/wine-nav.ejs') %>
-    <div class="wine-heading">
+    <div class="edit-heading">
       <h1>Edit Your Wine</h1>
     </div>
     <div id="edit-wine-container">
 
-      <img class="mockup" src="https://i.imgur.com/I2oV3Sz.png">
+      <img class="mockup" src="https://i.imgur.com/WkcOkDx.png?1">
       <div class="edit-form">
 
     <form action="/sip/red/<%=red.id%>?_method=PUT" method="POST">
@@ -32,7 +32,7 @@
       <% for (let i = 0; i < auction.length; i++) { %>
         <option value= <%= auction[i]%>><%=auction[i]%></option>
       <% } %>
-      </select><br/>
+      </select>
 
       <div class="edit-submit">
       <input type="reset"> <br/>

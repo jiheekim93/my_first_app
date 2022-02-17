@@ -9,7 +9,7 @@ const User = require('../models/users.js')
 // on sessions form submit (log in)
 sessions.get('/new', (req, res) => {
   res.render('users-new.ejs', {
-    currentUser: true
+    currentUser: req.session.currentUser
   })
 })
   // username is found and password matches
@@ -26,7 +26,7 @@ sessions.get('/new', (req, res) => {
   // Step 1 Look for the username
   sessions.post('/', (req, res) => {
     // console.log(req);
-    User.findOne({username: true}, (err, foundUser) => {
+    User.findOne({username: req.body.username}, (err, foundUser) => {
       if (err){
         console.log('error');
         res.send('oops we had a problem')
@@ -48,6 +48,30 @@ sessions.get('/new', (req, res) => {
   })
 })
 
+
+sessions.put('/', (req, res) => {
+  // console.log(req);
+  User.findOne({username: req.body.username}, (err, foundUser) => {
+    if (err){
+      console.log('error');
+      res.send('oops we had a problem')
+    }if (!foundUser) {
+      res.send('<a href="/users/new">Sorry, no user found </a>')
+    }else{
+      //user is found
+      //check if passwords match
+      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        //add user to session
+      req.session.currentUser = foundUser
+      // redirect to home page
+      res.redirect('/sip')
+    } else{
+      //passwords do not match
+      res.send('<a href="/sip/new">password does not match </a>')
+    }
+  }
+})
+})
 
 
 

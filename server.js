@@ -9,8 +9,7 @@ const db = mongoose.connection;
 require('dotenv').config()
 const router = express.Router();
 const session = require('express-session')
-const sessionsController = require('./controllers/sessions_controller.js')
-app.use('/sessions', sessionsController)
+
 //___________________
 //Port
 //___________________
@@ -62,9 +61,11 @@ const Rose = require('./models/rose.js')
 const wineTypes = require('./models/winetypes.js')
 const auctionTypes = require('./models/auction.js')
 const userController = require('./controllers/users_controller.js')
+const sessionsController = require('./controllers/sessions_controller.js')
 const userInfo = require('./models/user-info.js')
 const User = require('./models/users.js')
 app.use('/users', userController)
+app.use('/sessions', sessionsController)
 //___________________
 // Routes
 //___________________
@@ -254,13 +255,7 @@ app.get('/sip/rose' , (req, res) => {
 });
 
 //login page
-app.delete('/new', (req, res) => {
-  User.findByIdAndRemove({}, (err, User) => {
-    res.render('session-new.ejs', {
-      currentUser: true,
-    })
-  })
-})
+
 
 app.get('/new', (req, res) => {
   User.find({}, (err, newUser) => {
