@@ -22,7 +22,7 @@ Targeted consumers can be Michelin restaurants, individuals like sommelier, peop
 - Its tasting note
 
 ## technologies used
-express, ejs, mongoose, partials, flexbox, javascipt
+express, , Node.js, ejs, mongoose, partials, flexbox, javascipt
 
 ## unsolved problems
 Even though it was a strech goal (not mendatory), I needed Login Authentication to work for my website to make it
