@@ -8,7 +8,7 @@
 }
 
 .background {
-  background-color: #F6E9D9;
+  background-color: #FEF7EB;
 }
 
 .showcase {
@@ -172,7 +172,7 @@
   text-align: center;
   top: 0;
   margin:20px;
-  background-color: #F6E9D9;
+  background-color: #FEF7EB;
   position: sticky;
   align-items: center;
   z-index: 2;
@@ -489,7 +489,8 @@ input[type=url] {
 }
 
 .search input {
-background-color: white;
+  background-color: white;
+
 }
 
 .edit-heading {
