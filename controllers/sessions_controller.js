@@ -67,7 +67,7 @@ sessions.put('/', (req, res) => {
       res.redirect('/sip')
     } else{
       //passwords do not match
-      res.send('<a href="/sip/new">password does not match </a>')
+      res.send('<a href="/sip/">password does not match, try again. </a>')
     }
   }
 })
