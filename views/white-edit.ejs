@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
-    <div class="edit-heading">
-      <h1>Edit Your Wine</h1>
-    </div>
-    <div id="edit-wine-container">
+  <%- include('./partials/wine-nav.ejs') %>
+  <div class="edit-heading">
+    <h1>Edit Your Wine</h1>
+  </div>
+  <div id="edit-wine-container">
 
-      <img class="mockup" src="https://i.imgur.com/WkcOkDx.png?1">
-      <div class="edit-form">
+    <img class="mockup" src="https://i.imgur.com/WkcOkDx.png?1">
+    <div class="edit-form">
 
-    <form action="/sip/white/<%=white.id%>?_method=PUT" method="POST">
-      <input type="text" name="number" value="<%=white.number%>" placeholder="#"/><input type="reset"><br/>
-      <input type="text" name="name" value="<%=white.name%>" placeholder="Name"/><input type="reset"><br/>
-      <input type="url" name="image" value="<%=white.image%>" placeholder="Image"/><input type="reset">
-      <br/>
-      <input type="text" name="year" value="<%=white.year%>" placeholder="Year"/><input type="reset"><br/>
-      <input type="text" name="vineyard" value="<%=white.vineyard%>" placeholder="Vineyard Location"/><input type="reset"><br/>
-      <input type="text" name="price" value="<%=white.price%>" placeholder="Price"/><input type="reset"><br/>
-      <input type="text" name="tasteNote" value="<%=white.tasteNote%>" placeholder="Taste Note"/><input type="reset"><br/>
-      <select name="type">
-      <%  for (let i = 0; i < wineType.length; i++) { %>
-      <option value= <%=wineType[i]%>><%=wineType[i]%></option>
-      <% } %>
-      </select>
-      <select name="auctionable">
-      <% for (let i = 0; i < auction.length; i++) { %>
-        <option value= <%= auction[i]%>><%=auction[i]%></option>
-      <% } %>
-      </select>
+      <form action="/sip/white/<%=white.id%>?_method=PUT" method="POST">
+        <input type="text" name="number" value="<%=white.number%>" placeholder="#"/><input type="reset"><br/>
+        <input type="text" name="name" value="<%=white.name%>" placeholder="Name"/><input type="reset"><br/>
+        <input type="url" name="image" value="<%=white.image%>" placeholder="Image"/><input type="reset">
+        <br/>
+        <input type="text" name="year" value="<%=white.year%>" placeholder="Year"/><input type="reset"><br/>
+        <input type="text" name="vineyard" value="<%=white.vineyard%>" placeholder="Vineyard Location"/><input type="reset"><br/>
+        <input type="text" name="price" value="<%=white.price%>" placeholder="Price"/><input type="reset"><br/>
+        <input type="text" name="tasteNote" value="<%=white.tasteNote%>" placeholder="Taste Note"/><input type="reset"><br/>
+        <select name="type">
+          <%  for (let i = 0; i < wineType.length; i++) { %>
+            <option value= <%=wineType[i]%>><%=wineType[i]%></option>
+            <% } %>
+          </select>
+          <select name="auctionable">
+            <% for (let i = 0; i < auction.length; i++) { %>
+              <option value= <%= auction[i]%>><%=auction[i]%></option>
+              <% } %>
+            </select>
 
-      <div class="edit-submit">
-      <input type="reset"> <br/>
-      <input type="submit" name="submit" value="Submit Changes"/>
-      <a href="/sip">
-      </a><br/>
-          </div>
-    </form>
+            <div class="edit-submit">
+              <input type="reset"> <br/>
+              <input type="submit" name="submit" value="Submit Changes"/>
+              <a href="/sip">
+              </a><br/>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-        <%- include('./partials/footer.ejs') %>
-  </body>
-</html>
+      <%- include('./partials/footer.ejs') %>
+    </body>
+    </html>

@@ -77,44 +77,44 @@ app.use('/sessions', sessionsController)
 app.post('/sip/red', (req, res) => {
   Red.create(req.body, (err, createdRed) => {
     res.redirect('/sip/red')
-    })
   })
+})
 
 
 app.post('/sip/white', (req, res) => {
   White.create(req.body, (err, createdWhite) => {
     res.redirect('/sip/white')
-     })
-   })
+  })
+})
 
 
 
 app.post('/sip/rose', (req, res) => {
   Rose.create(req.body, (err, createdRose) => {
     res.redirect('/sip/rose')
-    })
   })
+})
 
 //3 updates
 app.put('/sip/red/:id', (req, res) => {
   Red.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
     res.redirect('/sip/red')
-    })
   })
+})
 
 
 app.put('/sip/white/:id', (req, res) => {
   White.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
     res.redirect('/sip/white')
-     })
   })
+})
 
 
 app.put('/sip/rose/:id', (req, res) => {
   Rose.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateWine) => {
     res.redirect('/sip/rose')
-    })
   })
+})
 
 
 //3 edit-pages
@@ -155,23 +155,23 @@ app.get('/sip/rose/:id/edit', (req, res) => {
 app.delete('/sip/red/:id', (req, res) => {
   Red.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/sip/red')
-    })
   })
+})
 
 
 
 app.delete('/sip/white/:id', (req, res) => {
   White.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/sip/white')
-    })
   })
+})
 
 
 app.delete('/sip/rose/:id', (req, res) => {
   Rose.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/sip/rose')
-    })
   })
+})
 
 
 //add 3 new-pages

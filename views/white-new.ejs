@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
-    <div class="wine-heading">
-      <h1>Post New Wine</h1>
-    </div>
+  <%- include('./partials/wine-nav.ejs') %>
+  <div class="wine-heading">
+    <h1>Post New Wine</h1>
+  </div>
 
-    <div id="new-wine-container">
+  <div id="new-wine-container">
 
-      <img class="mockup" src="https://i.imgur.com/u8eUDyG.png">
+    <img class="mockup" src="https://i.imgur.com/u8eUDyG.png">
 
-      <div class="add-new">
+    <div class="add-new">
 
-    <form action="/sip/white" method="POST">
-      <%- include('./partials/new-input.ejs') %>
-      <select name="type">
-        <% for (let i = 0; i < wineTypes.length; i++) { %>
-          <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
-        <% } %>
-      </select><br/>
-      <select name="auctionable">
-      <% for (let i = 0; i < auctions.length; i++) { %>
-        <option value= <%= auctions[i]%>> <%=auctions[i]%></option>
-      <% } %>
-      </select><br/>
+      <form action="/sip/white" method="POST">
+        <%- include('./partials/new-input.ejs') %>
+        <select name="type">
+          <% for (let i = 0; i < wineTypes.length; i++) { %>
+            <option value= <%= wineTypes[i]%>> <%=wineTypes[i]%></option>
+            <% } %>
+          </select><br/>
+          <select name="auctionable">
+            <% for (let i = 0; i < auctions.length; i++) { %>
+              <option value= <%= auctions[i]%>> <%=auctions[i]%></option>
+              <% } %>
+            </select><br/>
 
-      <input type="text" name="tasteNote" placeholder="Taste Note"><br/>
-      <div class="submit">
-        <input type="submit" value="Add New Wine"/>
+            <input type="text" name="tasteNote" placeholder="Taste Note"><br/>
+            <div class="submit">
+              <input type="submit" value="Add New Wine"/>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
-      </div>
-    </div>
-        <%- include('./partials/footer.ejs') %>
-  </body>
-</html>
+      <%- include('./partials/footer.ejs') %>
+    </body>
+    </html>

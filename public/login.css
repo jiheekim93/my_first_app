@@ -51,12 +51,12 @@
 
 
 .wine-logo p {
- font-size: 12px;
- position: relative;
- bottom: 3vh;
- font-family: 'Montserrat', sans-serif;
- letter-spacing: 2px;
- font-weight: 300;
+  font-size: 12px;
+  position: relative;
+  bottom: 3vh;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .container {

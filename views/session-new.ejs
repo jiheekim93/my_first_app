@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/login-head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/login-head.ejs') %>
+</head>
+<body class="background">
   <%-include ('./partials/login-nav.ejs')%>
 
-    <div class = 'container'>
-        <h1> Welcome Back! </h1>
-        <form action="/sessions?_method=PUT" method="POST">
-          username<input type='text' name='username' value='' /><br/>
-          password <input type='password' name='password' value=''><br/>
-          <input type='submit' value='Login!'/>
-      </div>
-    </body>
-  </html>
+  <div class = 'container'>
+    <h1> Welcome Back! </h1>
+    <form action="/sessions?_method=PUT" method="POST">
+      username<input type='text' name='username' value='' /><br/>
+      password <input type='password' name='password' value=''><br/>
+      <input type='submit' value='Login!'/>
+    </div>
+  </body>
+</html>

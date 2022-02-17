@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
+  <%- include('./partials/wine-nav.ejs') %>
 
-    <div class="wine-show">
-      <h2><%= red.name %> <%= red.number %></h2>
-      <li> <img src = <%= red.image %>></img> </li>
-      <li> Year: <%=red.year%></li>
-      <li> Location: <%=red.vineyard%></li>
-      <li> Pirce: <%=red.price%></li>
-      <li> Type: <%=red.type%></li>
-      <li> Taste note: <%=red.tasteNote%></li>
-      <li> Auction: <%=red.auctionable%></li>
-      <a href="/sip/red"> <button type="button" name="back">Back to Red</button></a>
+  <div class="wine-show">
+    <h2><%= red.name %> <%= red.number %></h2>
+    <li> <img src = <%= red.image %>></img> </li>
+    <li> Year: <%=red.year%></li>
+    <li> Location: <%=red.vineyard%></li>
+    <li> Pirce: <%=red.price%></li>
+    <li> Type: <%=red.type%></li>
+    <li> Taste note: <%=red.tasteNote%></li>
+    <li> Auction: <%=red.auctionable%></li>
+    <a href="/sip/red"> <button type="button" name="back">Back to Red</button></a>
 
-    </div>
-    <%- include('./partials/footer.ejs') %>
-  </body>
+  </div>
+  <%- include('./partials/footer.ejs') %>
+</body>
 </html>

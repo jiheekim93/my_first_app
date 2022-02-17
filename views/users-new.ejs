@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/login-head.ejs') %>
-  </head>
-  <body class="background">
-    <%-include ('./partials/login-nav.ejs')%>
-        <div class = 'container'>
-      <h1> New Account </h1>
-      <form action="/users?_method=POST" method="POST">
-        username<input type='text' name='username' value='' /><br/>
-        password <input type='password' name='password' value=''><br/>
-        Email<input type='text' name='email' value=''><br/>
-        <input type='submit' value='Create Account'/>
-      </form>
-  </body>
+<head>
+  <%- include('./partials/login-head.ejs') %>
+</head>
+<body class="background">
+  <%-include ('./partials/login-nav.ejs')%>
+  <div class = 'container'>
+    <h1> New Account </h1>
+    <form action="/users?_method=POST" method="POST">
+      username<input type='text' name='username' value='' /><br/>
+      password <input type='password' name='password' value=''><br/>
+      Email<input type='text' name='email' value=''><br/>
+      <input type='submit' value='Create Account'/>
+    </form>
+</body>
 </html>

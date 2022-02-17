@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
+  <%- include('./partials/wine-nav.ejs') %>
 
-    <div class="wine-container">
-      <a href="/sip/newrose"><div class="add-wine">New Rosé Wine?</div></a>
-      <% for (let i = 0; i < roses.length; i++) { %>
+  <div class="wine-container">
+    <a href="/sip/newrose"><div class="add-wine">New Rosé Wine?</div></a>
+    <% for (let i = 0; i < roses.length; i++) { %>
       <div class="wine-content">
         <h3>
           <%=roses[i].number%>
           <%=roses[i].name%>
           <%=roses[i].year%> </h3>
-        <a href="/sip/rose/<%=roses[i].id%>">
-          <img src= "<%=roses[i].image;%>"/></a>
-          <li> <%= roses[i].vineyard %> </li>
-          <form action="/sip/rose/<%=roses[i].id; %>?_method=DELETE" method="POST">
-          <input class="delete-btn" type="submit" value="DELETE"/>
-          <button class="edit-btn"><a href="/sip/rose/<%=roses[i].id; %>/edit">EDIT</a></button>
-          </form>
-        </div>
+          <a href="/sip/rose/<%=roses[i].id%>">
+            <img src= "<%=roses[i].image;%>"/></a>
+            <li> <%= roses[i].vineyard %> </li>
+            <form action="/sip/rose/<%=roses[i].id; %>?_method=DELETE" method="POST">
+              <input class="delete-btn" type="submit" value="DELETE"/>
+              <button class="edit-btn"><a href="/sip/rose/<%=roses[i].id; %>/edit">EDIT</a></button>
+            </form>
+          </div>
         <% } %>
-    </div>
+      </div>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>

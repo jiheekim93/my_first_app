@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
-    <div class="edit-heading">
-      <h1>Edit Your Wine</h1>
-    </div>
-    <div id="edit-wine-container">
+  <%- include('./partials/wine-nav.ejs') %>
+  <div class="edit-heading">
+    <h1>Edit Your Wine</h1>
+  </div>
+  <div id="edit-wine-container">
 
-      <img class="mockup" src="https://i.imgur.com/WkcOkDx.png?1">
-      <div class="edit-form">
+    <img class="mockup" src="https://i.imgur.com/WkcOkDx.png?1">
+    <div class="edit-form">
 
 
-    <form action="/sip/rose/<%=rose.id%>?_method=PUT" method="POST">
-      <input type="text" name="number" value="<%=rose.number%>" placeholder="#"/><input type="reset"><br/>
-      <input type="text" name="name" value="<%=rose.name%>" placeholder="Name"/><input type="reset"><br/>
-      <input type="url" name="image" value="<%=rose.image%>" placeholder="Image"/><input type="reset">
-      <br/>
-      <input type="text" name="year" value="<%=rose.year%>" placeholder="Year"/><input type="reset"><br/>
-      <input type="text" name="vineyard" value="<%=rose.vineyard%>" placeholder="Vineyard Location"/><input type="reset"><br/>
-      <input type="text" name="price" value="<%=rose.price%>" placeholder="Price"/><input type="reset"><br/>
-      <input type="text" name="tasteNote" value="<%=rose.tasteNote%>" placeholder="Taste Note"/><input type="reset"><br/>
-      <select name="type">
-      <%  for (let i = 0; i < wineType.length; i++) { %>
-      <option value= <%=wineType[i]%>><%=wineType[i]%></option>
-      <% } %>
-      </select>
-      <select name="auctionable">
-      <% for (let i = 0; i < auction.length; i++) { %>
-        <option value= <%= auction[i]%>><%=auction[i]%></option>
-      <% } %>
-      </select>
-      <div class="edit-submit">
-      <input type="reset"> <br/>
-      <input type="submit" name="submit" value="Submit Changes"/>
-      <a href="/sip">
-      </a><br/>
-          </div>
-        </form>
+      <form action="/sip/rose/<%=rose.id%>?_method=PUT" method="POST">
+        <input type="text" name="number" value="<%=rose.number%>" placeholder="#"/><input type="reset"><br/>
+        <input type="text" name="name" value="<%=rose.name%>" placeholder="Name"/><input type="reset"><br/>
+        <input type="url" name="image" value="<%=rose.image%>" placeholder="Image"/><input type="reset">
+        <br/>
+        <input type="text" name="year" value="<%=rose.year%>" placeholder="Year"/><input type="reset"><br/>
+        <input type="text" name="vineyard" value="<%=rose.vineyard%>" placeholder="Vineyard Location"/><input type="reset"><br/>
+        <input type="text" name="price" value="<%=rose.price%>" placeholder="Price"/><input type="reset"><br/>
+        <input type="text" name="tasteNote" value="<%=rose.tasteNote%>" placeholder="Taste Note"/><input type="reset"><br/>
+        <select name="type">
+          <%  for (let i = 0; i < wineType.length; i++) { %>
+            <option value= <%=wineType[i]%>><%=wineType[i]%></option>
+            <% } %>
+          </select>
+          <select name="auctionable">
+            <% for (let i = 0; i < auction.length; i++) { %>
+              <option value= <%= auction[i]%>><%=auction[i]%></option>
+              <% } %>
+            </select>
+            <div class="edit-submit">
+              <input type="reset"> <br/>
+              <input type="submit" name="submit" value="Submit Changes"/>
+              <a href="/sip">
+              </a><br/>
+            </div>
+          </form>
       </div>
     </div>
-        <%- include('./partials/footer.ejs') %>
-  </body>
+    <%- include('./partials/footer.ejs') %>
+</body>
 </html>

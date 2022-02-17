@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include('./partials/head.ejs') %>
-  </head>
-  <body class="background">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body class="background">
 
-    <%- include('./partials/wine-nav.ejs') %>
+  <%- include('./partials/wine-nav.ejs') %>
 
-    <div class="wine-show">
-        <h2><%= rose.name %> <%= rose.number %></h2>
-        <li> <img src = <%= rose.image %>></img> </li>
-        <li> Year: <%=rose.year%></li>
-        <li> Location: <%=rose.vineyard%></li>
-        <li> Pirce: <%=rose.price%></li>
-        <li> Type: <%=rose.type%></li>
-        <li> Taste note: <%=rose.tasteNote%></li>
-        <li> Auction: <%=rose.auctionable%></li>
-        <a href="/sip/rose"> <button type="button" name="back">Back to Rosé</button></a>
-    </div>
-        <%- include('./partials/footer.ejs') %>
-  </body>
+  <div class="wine-show">
+    <h2><%= rose.name %> <%= rose.number %></h2>
+    <li> <img src = <%= rose.image %>></img> </li>
+    <li> Year: <%=rose.year%></li>
+    <li> Location: <%=rose.vineyard%></li>
+    <li> Pirce: <%=rose.price%></li>
+    <li> Type: <%=rose.type%></li>
+    <li> Taste note: <%=rose.tasteNote%></li>
+    <li> Auction: <%=rose.auctionable%></li>
+    <a href="/sip/rose"> <button type="button" name="back">Back to Rosé</button></a>
+  </div>
+  <%- include('./partials/footer.ejs') %>
+</body>
 </html>
