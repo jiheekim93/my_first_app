@@ -168,7 +168,7 @@
   position: sticky;
   align-items: center;
   z-index: 2;
-  gap: 50px 10px;
+  /* gap: 50px 10px; */
 }
 
 .topnav a {
@@ -187,11 +187,22 @@
   margin-top: 8px;
   font-size: 15px;
   border: none;
-  display: flex;
-  flex-direction: row;
+  flex-grow: 1;
 }
 
+.topnav form {
+  display: flex;
+  align-items: baseline;
+}
 
+.topnav button {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAD745;
+  border: none;
+  border-radius: 5px;
+  padding: 9px;
+
+}
 
 .wine-logo {
   display: flex;
@@ -482,6 +493,8 @@ background-color: white;
 .topnav input[type=text] {
   background: white;
 }
+
+
 @media screen and (max-width: 1000px) {
   .add-wine {
     display: flex;
