@@ -2,7 +2,7 @@
 
 
 <h1>Sip.</h1>
-my app link: https://secure-savannah-39326.herokuapp.com/sip><br/><br/>
+my app link: https://secure-savannah-39326.herokuapp.com/sip
 
 ## User's story
 This app is an informational website with rare wines. 
