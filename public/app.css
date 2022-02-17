@@ -225,7 +225,7 @@
 
 .contact-container {
   position: relative;
-  /* top: 5vh; */
+  top: 5vh;
   font-family: 'Montserrat', sans-serif;
   margin: 40px;
 }
