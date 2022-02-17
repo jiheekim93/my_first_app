@@ -18,7 +18,7 @@
         <%=reds[i].name%>  <%=reds[i].year%> </h3>
       <a href="/sip/red/<%=reds[i].id%>">
         <img src= "<%=reds[i].image;%>"/></a>
-        <li> <%= reds[i].vineyard %> </li>
+        <li > <%= reds[i].vineyard %> </li>
         <form action="/sip/red/<%=reds[i].id; %>?_method=DELETE" method="POST">
         <input class="delete-btn" type="submit" value="DELETE"/>
         <button class="edit-btn"><a href="/sip/red/<%=reds[i].id; %>/edit">EDIT</a></button>

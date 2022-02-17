@@ -8,9 +8,22 @@
   <a href="/sip/rose">Rosé</a>
   <a href="/sip/contact">Contact</a>
 
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
+    <div class = "search">
+      <input oninput = "Search((this.value).toLowerCase())" type="text" placeholder="Search.." >
       <button type="submit">SEARCH</button>
-    </form>
-
+    </div>
 </div>
+
+
+  <script>
+  function Search(item){
+    let collection = document.getElementsByClassName("wine-content");
+    for (i = 0;i < collection.length; i++){
+        if (((collection[i].innerHTML).toLowerCase()).indexOf(item) > -1) {
+            collection[i].style.display = "block";
+            } else {
+                collection[i].style.display = "none";
+                }
+    }
+      }
+  </script>

@@ -474,6 +474,7 @@ input[type=url] {
   font-family: 'Montserrat', sans-serif;
   border-radius: 15px;
   width: 50%;
+  height: 20%;
   background-color:#FAD745;
   border: none;
 }
@@ -499,8 +500,7 @@ background-color: white;
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 20vh;
-  background-color:#FAD745;
+  height: 20%;
   color: black;
   z-index: 2;
   display: flex;
@@ -563,12 +563,11 @@ background-color: white;
     position: fixed;
     right: 0;
     bottom: 0;
-    height: 10vh;
-    background-color:#FAD745;
+    height: 20%;
     color: black;
     z-index: 2;
     display: flex;
-    justify-content:space-around;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-end;
   }
