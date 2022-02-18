@@ -73,3 +73,11 @@
   display: flex;
   gap: 2vh;
 }
+.container input[type=submit]{
+  background-color: #FAD745;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  font-size: 1em;
+
+}
